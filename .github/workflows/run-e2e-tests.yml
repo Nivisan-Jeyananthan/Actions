@@ -14,7 +14,7 @@ jobs:
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
-          node-version: "18.0.0"
+          node-version: ${{ matrix.node-version }}
           cache: "yarn" # changed this line
           cache-dependency-path: ./github-action/yarn.lock # changed this line
       - name: Build
