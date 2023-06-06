@@ -15,8 +15,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: "18.0.0"
-          cache-dependency-path: "**/yarn.lock" # added this line
-      - run: npm install -g yarn
+          cache: "yarn" # changed this line
+          cache-dependency-path: ./github-action/yarn.lock # changed this line
       - name: Build
         run: |
           cd ./github-action
