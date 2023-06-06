@@ -25,8 +25,8 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v5
         with:
-          start: yarn run dev
-          build: yarn run build
+          build: yarn build
+          start: yarn dev
           project: github-action
         env:
           MONGODB_URI: ${{ secrets.MONGODB_URI }}
