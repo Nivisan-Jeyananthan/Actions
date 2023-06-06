@@ -19,6 +19,7 @@ jobs:
       - name: Build
         run: |
           cd ./github-action
+          pwd
           yarn
 
       - name: Cypress run
