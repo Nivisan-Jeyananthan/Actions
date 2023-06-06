@@ -15,7 +15,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: "18.0.0"
-          cache-dependency-path: "**/package-lock.json" # added this line
+          cache-dependency-path: "**/yarn.lock" # added this line
       - run: npm install -g yarn
       - name: Build
         run: |
