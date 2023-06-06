@@ -27,6 +27,6 @@ jobs:
         with:
           start: yarn run dev
           build: yarn run build
-          project: ./
+          project: github-action
         env:
           MONGODB_URI: ${{ secrets.MONGODB_URI }}
