@@ -23,6 +23,7 @@ concurrency:
   group: 'pages'
   cancel-in-progress: true
 
+
 jobs:
   # Single deploy job since we're just deploying
   deploy:
@@ -33,6 +34,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+
       - name: Set up Node.js and Yarn
         uses: actions/setup-node@v3
         with:
@@ -40,19 +42,24 @@ jobs:
           cache: 'yarn'
           cache-dependency-path: ./github-action/yarn.lock
           registry-url: 'https://registry.npmjs.org'
+
       - name: Install dependencies with Yarn
         run: yarn install --frozen-lockfile
         working-directory: ./github-action/
+
       - name: Build with Yarn
-        run: yarn build --if-present
+        run: yarn build
         working-directory: ./github-action/
+
       - name: Setup Pages
         uses: actions/configure-pages@v3
+
       - name: Upload artifact
         uses: actions/upload-artifact@v2
         with:
           # Upload dist repository
           path: './github-action/build'
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: JamesIves/github-pages-deploy-action@v4
